@@ -1,6 +1,6 @@
 # Petcare Application
 
-This repository contains the code for the Petcare application. link for the application (http://127.0.0.1:5000)
+This repository contains the code for the Petcare application.
 
 ## Run the application
 
