@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Dashboard</h2>
+    <a href="{{ url_for('add_pet') }}" class="btn btn-success mb-3">Add Pet</a>
+    {% if pets %}
+        <div class="list-group">
+            {% for pet in pets %}
+                <div class="list-group-item">
+                    <h5>{{ pet.name }}</h5>
+                    <a href="{{ url_for('add_appointment', pet_id=pet.id) }}" class="btn btn-info">Add Appointment</a>
+                    <a href="{{ url_for('add_medication', pet_id=pet.id) }}" class="btn btn-warning">Add Medication</a>
+                    
+                    <h6>Appointments:</h6>
+                    {% if pet.appointments %}
+                        <ul>
+                            {% for appointment in pet.appointments %}
+                                <li>{{ appointment.date }} - {{ appointment.description }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No appointments found.</p>
+                    {% endif %}
+                    
+                    <h6>Medications:</h6>
+                    {% if pet.medications %}
+                        <ul>
+                            {% for medication in pet.medications %}
+                                <li>{{ medication.medication_name }} - {{ medication.schedule }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No medications found.</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No pets found. Please add a pet.</p>
+    {% endif %}
+{% endblock %}

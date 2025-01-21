@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Add Pet</h2>
+
+    <!-- Flash messages for errors and information -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Pet Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter pet name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Pet</button>
+    </form>
+
+    <h3 class="mt-4">Added Pets</h3>
+    {% if pets %}
+        <ul class="list-group mt-3">
+            {% for pet in pets %}
+                <li class="list-group-item">{{ pet.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pets added yet.</p>
+    {% endif %}
+{% endblock %}
