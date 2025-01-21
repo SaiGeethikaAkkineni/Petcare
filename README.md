@@ -1,6 +1,6 @@
 # Petcare Application
 
-This repository contains the code for the Petcare application.
+This repository contains the code for the Petcare application. link for the application (http://127.0.0.1:5000)
 
 ## Run the application
 
@@ -14,4 +14,4 @@ To run the application, follow the instructions below:
 
 You can view the application by visiting the link below:
 
-[Petcare App]([https://link-to-your-application-page](http://127.0.0.1:5000))
+[Petcare App]([https://link-to-your-application-page])
